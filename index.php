@@ -494,7 +494,7 @@ actualBtn.addEventListener('change', function(){
 			let isi_tulisan = 'dengan bersepeda, hari ini saya menghemat';
 			let isi_tulisan2 = ' potensi emisi CO2 sebesar '+emisi.toFixed(2)+' kg*';
 			
-			var emisiSaya = 'Ayo dukung program hemat emisi dengan bersepeda dan menggunakan twibbon potensi hemat emisi. Dapatkan twibbon-nya di ipb.link/calculator-emisi. '+isi_tulisan+isi_tulisan2+'  #hematEmisi #IPBVirtualGowes2021'
+			var emisiSaya = 'Ayo dukung program hemat emisi dengan bersepeda dan menggunakan twibbon potensi hemat emisi. Dapatkan twibbon-nya di http://pplh.ipb.ac.id/twibbon-emisi. '+isi_tulisan+isi_tulisan2+'  #hematEmisi #IPBVirtualGowes2021'
 			$("#txtKeyw").val(emisiSaya);
 			
 			// load image
