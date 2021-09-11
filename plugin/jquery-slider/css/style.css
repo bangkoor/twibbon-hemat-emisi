@@ -1,0 +1,32 @@
+body {
+	font-family: sans-serif;
+	margin-bottom: 40px;
+}
+h1 {
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 40px;
+	color:white;
+	text-shadow: 1px 1px black;
+}
+h1,
+h2,
+h3 {
+	font-weight: 700;
+}
+.function {
+	margin-left: 150px;
+}
+.slide {
+	position: absolute;
+	z-index: 99;
+}
+.done {
+	position: absolute;
+	z-index: 99;
+	margin-left: 100px;
+}
+.active { 
+	color: white;
+	text-shadow: 1px 1px black;
+}
