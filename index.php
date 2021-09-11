@@ -240,8 +240,8 @@
         </button>
       </div>
       <div class="modal-body">
-	  	<h4><a href="https://pplh.ipb.ac.id/team/taufiq-yuliawan/" traget="blank">Taufiq Yuliawan</a></h4>
-		<h4><a href="https://akwijayanto.com/" traget="blank">Arif Kurnia Wijayanto</a></h4>
+	  	<h4><a href="https://pplh.ipb.ac.id/team/taufiq-yuliawan/" target="blank">Taufiq Yuliawan</a></h4>
+		<h4><a href="https://akwijayanto.com/" target="blank">Arif Kurnia Wijayanto</a></h4>
 	  </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
