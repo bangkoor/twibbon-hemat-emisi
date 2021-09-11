@@ -52,12 +52,12 @@
                   <div class="form-row mt-4">
                     <div class="col-lg-10">
 						<div class="range-wrap" style="text-align:center;">
-							<input class="range" id="jarak" name="jarak" type="range" min="0" max="100" step="0.1" value=0 onchange="updateTextInput(this.value);">
+							<input class="range" id="jarak" name="jarak" type="range" min="0" max="100" step="0.1" value="0" onchange="updateTextInput(this.value);">
 							
 						</div>
                     </div>
 					<div class="col-lg-2">
-						<span style="text-color:white;font-size:1em" class="badge bg-primary badge-pill" id="rangeJarak">0</span>
+						<span style="text-color:white;font-size:1em" class="badge bg-primary badge-pill" id="rangeJarak">0 km</span>
 					</div>
                   </div>
 				  <div class="button-row d-flex mt-4">
@@ -74,7 +74,7 @@
 					<div class="col">
 						<div class="form-check">
 							<label class="form-check-label">
-							  <input class="form-check-input" type="radio" name="kendaraan" id="motor1" value="motor1">
+							  <input class="form-check-input" type="radio" name="kendaraan" id="motor1" value="motor1" checked>
 							  <img src="./img/motor1.png" width="200"/>
 							  <span class="circle">
 								<span class="check"></span>
@@ -125,7 +125,7 @@
 				  <div class="row">
 					
 						<div class="col-md-12" style="padding:20px 0 ">
-						 <textarea type="text" class="form-control txtKeywords" id="txtKeyw" style="margin-bottom:10px;" rows="3" maxlength="200">
+						 <textarea type="text" class="form-control txtKeywords" id="txtKeyw" style="margin-bottom:10px;" rows="3" maxlength="200" placeholder="Masukkan terlebih dahulu jarak tempuh anda dengan bersepeda pada bagian sebelumnya">
 						 </textarea>
 						<center><button type="button" id="copyText" class="btn btn-space btn-success btn-shade4 btn-lg copyToClipboard" onclick="salinTeks()">
 						<i class="icon icon-left s7-mouse"></i> Salin teks
@@ -162,14 +162,35 @@
                       <button class="btn btn-primary ml-auto js-btn-next" type="button" title="berikutnya" disabled>&gt;</button>
                     </div>
                   </div>
+				  <!-- Modal -->
+			<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="metodemodal" aria-hidden="true" id="metode">
+			  <div class="modal-dialog" role="document">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Metode Perhitungan</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <div class="modal-body">
+					Pendugaan potensi emisi dihitung dengan asumsi jika peserta menggunakan kendaraan bermotor. Emisi CO2 dihitung menggunakan metode Tier-1 sesuai dengan Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional (KLH 2021). Jumlah jarak tempuh berdasarkan bahan bakar diasumsikan berdasarkan hasil penelitian Zulfikri & Maemunah (2010), Saharuna (2017), dan Manorek (2018).
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+				  </div>
+				</div>
+			  </div>
+			</div>
                 </div>
               </div>
               <!--single form panel-->
             </form>
+			
+			<center><small><a href="#metode" data-toggle="modal" data-target="#metode">Metode perhitungan</a></small></center>
           </div>
         </div>
       </div>
-    </div>
+	</div>
   </div>
 </div>
 <!-- partial -->
@@ -256,25 +277,35 @@ actualBtn.addEventListener('change', function(){
 			});
 		});
 		
-		var isi_tulisan = 'hari ini saya menghemat CO2 ...g*';
+		var isi_tulisan = 'dengan bersepeda, hari ini saya menghemat';
+		var isi_tulisan2 = 'potensi emisi CO2 sebesar ...kg*';
+		//str.substring(17, 18);
 		
 		// load image
-		fabric.Image.fromURL('./img/desain twibbon transparent.png', function (img) {
+		fabric.Image.fromURL('./img/twibbon-emisi-transparan.png', function (img) {
 			img.scaleToWidth(canvas.getWidth());
 			
 
 			// create text --> ini nanti yang bisa diubah dinamis dari function kalkulator emisi
 			
-			var textCO2 = new fabric.Text(isi_tulisan, {
-				left: 40,
-				top: 370,
-				fontSize: 25,
+			var text1 = new fabric.Text(isi_tulisan, {
+				left: 25,
+				top: 350,
+				fontSize: 20,
 				fontFamily: 'Arial',
 				fill: 'white'
-			}).setSubscript(26, 27);
+			});
+			
+			var text2 = new fabric.Text(isi_tulisan2, {
+				left: 25,
+				top: 375,
+				fontSize: 20,
+				fontFamily: 'Arial',
+				fill: 'white'
+			}).setSubscript(17, 18);
 			
 			// add image and text to a group
-			var group = new fabric.Group([img, textCO2], {
+			var group = new fabric.Group([img, text1, text2], {
 				left: 0,
 				top: 0
 			});
@@ -311,10 +342,25 @@ actualBtn.addEventListener('change', function(){
                                     $("#download").click(function(){
                                         $("#c").get(0).toBlob(function(blob){
                                             saveAs(blob, "myIMG.png");
+											dataObject.append('gbr', blob, 'myIMG.png');
+												$.ajax({
+												url: "https://pplh.ipb.ac.id/emsdtbs/tmbhems.php?function=tmbhems",
+												type: "post",
+												data: dataObject,
+												processData: false,
+												contentType: false,
+												success: function (data,status,xhr) {   // success callback function
+													console.log("sukses");
+												},
+												error: function (jqXhr, textStatus, errorMessage) { // error callback 
+													console.log(errorMessage);
+												}
+											});
                                         });
                                     });
                                 </script>
 		<script>
+		var dataObject = new FormData();
 		function hitung(){
 			var jarak = $("#jarak").val();
 			var kendaraan = $('input[name="kendaraan"]:checked').val();
@@ -339,6 +385,10 @@ actualBtn.addEventListener('change', function(){
 			eg = eg * 6.11 * Math.pow(10,9) * Math.pow(10,-12); //TJ
 			emisi = fe*eg;
 			
+			dataObject.append('jr', jarak);
+			dataObject.append('kr', kendaraan);
+			dataObject.append('em', emisi.toFixed(2));
+			
 			const context = canvas.getContext('2d');
 			context.clearRect(0, 0, 1080, 1080);
 			let canvasWrapper = document.getElementById('c');
@@ -353,26 +403,37 @@ actualBtn.addEventListener('change', function(){
 				});
 			});
 			
-			let isi_tulisan = 'Hari ini saya menghemat CO2 '+emisi.toFixed(2)+' kg*';
-			var emisiSaya = 'Ayo dukung program hemat emisi dengan bersepeda dan menggunakan twibbon potensi hemat emisi. Dapatkan twibbon-nya di ipb.link/calculator-emisi. '+isi_tulisan+' dengan bersepeda #hematEmisi #IPBVirtualGowes2021'
+			//let isi_tulisan = 'Hari ini saya menghemat CO2 '+emisi.toFixed(2)+' kg*';
+			let isi_tulisan = 'dengan bersepeda, hari ini saya menghemat';
+			let isi_tulisan2 = ' potensi emisi CO2 sebesar '+emisi.toFixed(2)+' kg*';
+			
+			var emisiSaya = 'Ayo dukung program hemat emisi dengan bersepeda dan menggunakan twibbon potensi hemat emisi. Dapatkan twibbon-nya di ipb.link/calculator-emisi. '+isi_tulisan+isi_tulisan2+'  #hematEmisi #IPBVirtualGowes2021'
 			$("#txtKeyw").val(emisiSaya);
 			
 			// load image
-			fabric.Image.fromURL('./img/desain twibbon transparent.png', function (img) {
+			fabric.Image.fromURL('./img/twibbon-emisi-transparan.png', function (img) {
 				img.scaleToWidth(canvas.getWidth());
 				
 				// create text --> ini nanti yang bisa diubah dinamis dari function kalkulator emisi
 				
-				let textCO2 = new fabric.Text(isi_tulisan, {
-					left: 40,
-					top: 370,
-					fontSize: 25,
+				let text1 = new fabric.Text(isi_tulisan, {
+					left: 25,
+					top: 350,
+					fontSize: 20,
 					fontFamily: 'Arial',
 					fill: 'white'
-				}).setSubscript(26, 27);
+				});
+				
+				let text2 = new fabric.Text(isi_tulisan2, {
+					left: 25,
+					top: 375,
+					fontSize: 20,
+					fontFamily: 'Arial',
+					fill: 'white'
+				}).setSubscript(17, 18);
 				
 				// add image and text to a group
-				let group = new fabric.Group([img, textCO2], {
+				let group = new fabric.Group([img, text1, text2], {
 					left: 0,
 					top: 0
 				});
