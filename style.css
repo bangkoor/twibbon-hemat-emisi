@@ -332,3 +332,10 @@ canvas {
 max-width: 100%;
 height: auto;
 }
+.credit{
+	font-size:0.5em;
+}
+.love{
+	font-size:1.5em;
+	font-color:red;
+}
