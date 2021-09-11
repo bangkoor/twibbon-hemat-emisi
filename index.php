@@ -11,7 +11,7 @@
 
 
 	<link rel='stylesheet' href='./plugin/jquery-slider/css/rangeslider.css'>
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src='./plugin/jquery-slider/js/rangeslider.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha512-P80p6tohVkKfeJBb6xFNw7PAlgdY4rZWSZbLu5UtuGGiC85I0P7uuSEpes/Yvq/djrmUZ3ZiyU1295dCacFlQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
@@ -494,7 +494,7 @@ actualBtn.addEventListener('change', function(){
 			let isi_tulisan = 'dengan bersepeda, hari ini saya menghemat';
 			let isi_tulisan2 = ' potensi emisi CO2 sebesar '+emisi.toFixed(2)+' kg*';
 			
-			var emisiSaya = 'Ayo dukung program hemat emisi dengan bersepeda dan menggunakan twibbon potensi hemat emisi. Dapatkan twibbon-nya di ipb.link/calculator-emisi. '+isi_tulisan+isi_tulisan2+'  #hematEmisi #IPBVirtualGowes2021'
+			var emisiSaya = 'Ayo dukung program hemat emisi dengan bersepeda dan menggunakan twibbon potensi hemat emisi. Dapatkan twibbon-nya di http://pplh.ipb.ac.id/twibbon-emisi. '+isi_tulisan+isi_tulisan2+'  #hematEmisi #IPBVirtualGowes2021'
 			$("#txtKeyw").val(emisiSaya);
 			
 			// load image
