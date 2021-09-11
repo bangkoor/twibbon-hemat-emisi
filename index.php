@@ -187,7 +187,7 @@
             </form>
 			
 			<center><small><a href="#metode" data-toggle="modal" data-target="#metode">Metode perhitungan</a></small></center>
-			<center><span class="credit">made with <i class="material-icons love">favorite</i> by Taufiq & Arif, Unit SITD, PPLH IPB</span></center>
+			<center><span class="credit">made with <i class="material-icons love">favorite</i> by Taufiq & <a href="https://akwijayanto.com" target="blank">Arif</a>, Unit SITD, PPLH IPB</span></center>
           </div>
         </div>
       </div>
