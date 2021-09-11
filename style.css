@@ -339,3 +339,16 @@ height: auto;
 	font-size:1.5em;
 	font-color:red;
 }
+
+#spinner1 {
+  top:0;
+  position:absolute;
+  display:none;
+  height:100%;
+  z-index:1000000;
+  background-color: #464545b8;
+}
+
+#card1 {
+  align-items: center;
+}

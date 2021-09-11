@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-  <meta charset="UTF-8">
-  <title>Kalkulator Potensi Hemat Emisi</title>
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="./style.css">
+  	<meta charset="UTF-8">
+  	<title>Kalkulator Potensi Hemat Emisi</title>
+  	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha512-Kx22U8IiIwSKYEPPTN6bjolK0XMhQ4ZDcOwR+GzXnoWbpyQDPKNXQfJLOt6o5MzhtXorMb0M+LptuR8h47/I5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<link rel='stylesheet' href='./plugin/jquery-slider/css/rangeslider.css'>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src='./plugin/jquery-slider//js/rangeslider.js'></script>
-  
- 
+
+	<link rel='stylesheet' href='./plugin/jquery-slider/css/rangeslider.css'>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src='./plugin/jquery-slider/js/rangeslider.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha512-P80p6tohVkKfeJBb6xFNw7PAlgdY4rZWSZbLu5UtuGGiC85I0P7uuSEpes/Yvq/djrmUZ3ZiyU1295dCacFlQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	
+	
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -52,12 +54,12 @@
                   <div class="form-row mt-4">
                     <div class="col-lg-10">
 						<div class="range-wrap" style="text-align:center;">
-							<input class="range" id="jarak" name="jarak" type="range" min="0" max="100" step="0.1" value="0" onchange="updateTextInput(this.value);">
+							<input class="range" id="jarak" name="jarak" type="range" style="" min="0" max="100" step="0.1" value="0" onchange="updateTextInput(this.value);">
 							
 						</div>
                     </div>
 					<div class="col-lg-2">
-						<span style="text-color:white;font-size:1em" class="badge bg-primary badge-pill" id="rangeJarak">0 km</span>
+						<span style="color:white;font-size:1em" class="badge bg-primary badge-pill" id="rangeJarak">0 km</span>
 					</div>
                   </div>
 				  <div class="button-row d-flex mt-4">
@@ -148,12 +150,13 @@
 									<span id="file-chosen">tidak ada foto terpilih</span>
 								</center>
 							</div>
-							<div class="footer text-center">
-								<button type="button" id="download" class="btn btn-primary btn-round">
-									<i class="material-icons">download</i> Unduh
-								  </button>
-							</div>
+							
 					    </div>
+						<div class="footer text-center">
+							<button type="button" id="download" class="btn btn-primary btn-round" style="margin: 10px;">
+								<i class="material-icons">download</i> Unduh
+								</button>
+						</div>
 					</div>
                   </div>
                   <div class="row">
@@ -163,37 +166,90 @@
                     </div>
                   </div>
 				  <!-- Modal -->
-			<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="metodemodal" aria-hidden="true" id="metode">
-			  <div class="modal-dialog" role="document">
-				<div class="modal-content">
-				  <div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Metode Perhitungan</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					  <span aria-hidden="true">&times;</span>
-					</button>
-				  </div>
-				  <div class="modal-body">
-					Pendugaan potensi emisi dihitung dengan asumsi jika peserta menggunakan kendaraan bermotor. Emisi CO2 dihitung menggunakan metode Tier-1 sesuai dengan Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional (KLH 2021). Jumlah jarak tempuh berdasarkan bahan bakar diasumsikan berdasarkan hasil penelitian Zulfikri & Maemunah (2010), Saharuna (2017), dan Manorek (2018).
-				  </div>
-				  <div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-				  </div>
-				</div>
-			  </div>
-			</div>
+			
                 </div>
               </div>
               <!--single form panel-->
             </form>
 			
-			<center><small><a href="#metode" data-toggle="modal" data-target="#metode">Metode perhitungan</a></small></center>
-			<center><span class="credit">made with <i class="material-icons love">favorite</i> by Taufiq & <a href="https://akwijayanto.com" target="blank">Arif</a>, Unit SITD, PPLH IPB</span></center>
+			<center><a href="#metode" data-toggle="modal" data-target="#metode">Metode perhitungan</a></center>
+			<center><small><span>made by <a href="#developer"  data-toggle="modal" data-target="#developer">Taufiq & Arif, Unit SITD PPLH IPB University</a></span></small></center>
           </div>
         </div>
       </div>
 	</div>
   </div>
 </div>
+<!-- spinner loading -->
+<div id="spinner1" class="container-fluid text-white spinner-transparan">
+	<div class="row justify-content-center align-self-center" style="position:relative;top:40%">
+		<div class="spinner-grow" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div class="spinner-grow" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div class="spinner-grow" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div class="spinner-grow" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div class="spinner-grow" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div class="col-12 text-center"><h3>Mohon tunggu, sistem sedang mengunggah gambar</h3></div>
+	</div>
+</div>
+
+<!-- modal metode perhitungan -->
+<div class="modal fade" id="metode" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Metode Perhitungan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+		Pendugaan potensi emisi dihitung dengan asumsi jika peserta menggunakan kendaraan bermotor. Emisi CO<sub>2</sub> dihitung menggunakan metode Tier-1 sesuai dengan Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional (KLH 2021). Jumlah jarak tempuh berdasarkan bahan bakar diasumsikan berdasarkan hasil penelitian Zulfikri & Maemunah (2010), Saharuna (2017), dan Manorek <i>et al.</i> (2018).
+		</p>
+		<p><strong>Daftar Pustaka</strong></p>
+		<p>[KLH] Kementerian Lingkungan Hidup. 2021. Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional. Buku II - Volume 1 Metodologi Perhitungan Tingkat Emisi Gas Rumah Kaca Kegiatan Pengadaan dan Penggunaan Energi. Jakarta (ID): KLH RI.</p>
+		<p>Manorek DW, Rante J, Patras A. 2018. Perancangan dan pengukuran jarak tempuh motor injeksi menggunakan mikrokontroler. Jurnal Realtech 14(2):110-115.</p>
+		<p>Saharuna. 2017. Perbandingan konsumsi bahan bakar sepeda motor sistem konvensional dan sistem EFI. Jurnal Teknik Mesin Teknologi 19(1):34-42.</p>
+		<p>Zulfikri dan Maemunah S. 2010. Kajian konsumsi BBM pengguna kendaraan pribadi roda empat di JABODETABEK. Warta Penelitian Perhubungan 22(5):513-526.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal metode perhitungan -->
+<div class="modal fade" id="developer" tabindex="-1" role="dialog" aria-labelledby="modalLabel1 aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel1">Pembuat Aplikasi Twibbon Hemat Emisi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  	<h4><a href="https://pplh.ipb.ac.id/team/taufiq-yuliawan/" traget="blank">Taufiq Yuliawan</a></h4>
+		<h4><a href="https://akwijayanto.com/" traget="blank">Arif Kurnia Wijayanto</a></h4>
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- partial -->
 
 <script  src="./script.js"></script>
@@ -255,8 +311,16 @@ actualBtn.addEventListener('change', function(){
     $(window).on("resize", function(){         				$("c").outerHeight($(window).height()-$("c").offset().top- Math.abs($("c").outerHeight(true) - $("c").outerHeight()));
     });
 </script>
- <script type="text/javascript">
+<script type="text/javascript">
 		document.getElementById("uploadBtn").onchange = function () {
+			//untuk mengaktifkan spinner
+			let x = document.getElementById("spinner1");
+        	x.style.display = "block";
+
+			//hapus image
+			let object = canvas.getActiveObject();
+			canvas.remove(object);
+
 			document.getElementById("uploadFile").value = this.files[0].name;
 		};
 		var canvas = new fabric.Canvas('c');
@@ -315,51 +379,69 @@ actualBtn.addEventListener('change', function(){
 			canvas.setOverlayImage(group, canvas.renderAll.bind(canvas));
 		});
 		canvas.selection = false;
-                                    function imageIsLoaded(e) {
-                                        fabric.Image.fromURL(e.target.result,function(img){
-                                            var aspectRatio = 500/500;
-                                            var factor = 500 / img.width;
-                                            img.set({
-                                                scaleX: factor,
-                                                scaleY: factor 
-                                            });
-                                            canvas.add(img);
-                                            canvas.item(0).set({
-                                                borderColor: 'gray',
-                                                cornerColor: 'black',
-                                                cornerSize: 70,
-                                                borderScaleFactor: 10,
-                                                hasBorders: true,
-                                                
-                                                rotatingPointOffset:200,
-                                                padding:60, 
-                                                transparentCorners: true
-                                            });
-                                            canvas.setActiveObject(canvas.item(0));
-                                            this.__canvases.push(canvas);
-                                            canvas.sendToBack(img);
-                                        });
-                                    };
-                                    $("#download").click(function(){
-                                        $("#c").get(0).toBlob(function(blob){
-                                            saveAs(blob, "myIMG.png");
-											dataObject.append('gbr', blob, 'myIMG.png');
-												$.ajax({
-												url: "https://pplh.ipb.ac.id/emsdtbs/tmbhems.php?function=tmbhems",
-												type: "post",
-												data: dataObject,
-												processData: false,
-												contentType: false,
-												success: function (data,status,xhr) {   // success callback function
-													console.log("sukses");
-												},
-												error: function (jqXhr, textStatus, errorMessage) { // error callback 
-													console.log(errorMessage);
-												}
-											});
-                                        });
-                                    });
-                                </script>
+		function imageIsLoaded(e) {
+			fabric.Image.fromURL(e.target.result,function(img){
+				var aspectRatio = 500/500;
+				var factor = 500 / img.width;
+				img.set({
+					scaleX: factor,
+					scaleY: factor 
+				});
+				canvas.add(img);
+				canvas.item(0).set({
+					borderColor: 'gray',
+					cornerColor: 'black',
+					cornerSize: 70,
+					borderScaleFactor: 10,
+					hasBorders: true,
+					
+					rotatingPointOffset:200,
+					padding:60, 
+					transparentCorners: true
+				});
+				canvas.setActiveObject(canvas.item(0));
+				this.__canvases.push(canvas);
+				canvas.sendToBack(img);
+			});
+
+			//menonaktifkan spinner
+			let x = document.getElementById("spinner1");
+        	x.style.display = "none";
+		};
+
+		//bikin nama file
+		var d = new Date();
+        var namaIMG = d.toLocaleString();
+        namaIMG=namaIMG.replace("/", "");
+        namaIMG=namaIMG.replace("/", "");
+        namaIMG=namaIMG.replace(" ", "");
+        namaIMG=namaIMG.replace(",", "");
+        namaIMG=namaIMG.replace(":", "");
+        namaIMG=namaIMG.replace(":", "");
+        namaIMG=namaIMG.replace(" AM", "");
+        namaIMG=namaIMG.replace(" PM", "");
+
+		$("#download").click(function(){
+			$("#c").get(0).toBlob(function(blob){
+				saveAs(blob, "PPLH-"+namaIMG+".png");
+				dataObject.append('gbr', blob, "PPLH-"+namaIMG+".png");
+					$.ajax({
+					url: "data/addData.php?function=tmbhems",
+					type: "post",
+					data: dataObject,
+					processData: false,
+					contentType: false,
+					success: function (data,status,xhr) {   // success callback function
+						console.log("sukses");
+					},
+					error: function (jqXhr, textStatus, errorMessage) { // error callback 
+						console.log(errorMessage);
+					}
+				});
+			});
+		});
+</script>
+
 		<script>
 		var dataObject = new FormData();
 		function hitung(){
@@ -390,10 +472,11 @@ actualBtn.addEventListener('change', function(){
 			dataObject.append('kr', kendaraan);
 			dataObject.append('em', emisi.toFixed(2));
 			
-			const context = canvas.getContext('2d');
-			context.clearRect(0, 0, 1080, 1080);
+			
 			let canvasWrapper = document.getElementById('c');
 			let canvasWrapperWidth = canvasWrapper.clientWidth;
+			let context = canvasWrapper.getContext('2d');
+			context.clearRect(0, 0, canvasWrapper.width, canvasWrapper.height);
 			$(function () {
 				$(":file").change(function () {
 					if (this.files && this.files[0]) {
@@ -444,30 +527,33 @@ actualBtn.addEventListener('change', function(){
 			});
 			canvas.selection = false;
 			function imageIsLoaded(e) {
-                                        fabric.Image.fromURL(e.target.result,function(img){
-                                            var aspectRatio = 500/500;
-                                            var factor = 500 / img.width;
-                                            img.set({
-                                                scaleX: factor,
-                                                scaleY: factor 
-                                            });
-                                            canvas.add(img);
-                                            canvas.item(0).set({
-                                                borderColor: 'gray',
-                                                cornerColor: 'black',
-                                                cornerSize: 70,
-                                                borderScaleFactor: 10,
-                                                hasBorders: true,
-                                                
-                                                rotatingPointOffset:200,
-                                                padding:60, 
-                                                transparentCorners: true
-                                            });
-                                            canvas.setActiveObject(canvas.item(0));
-                                            this.__canvases.push(canvas);
-                                            canvas.sendToBack(img);
-                                        });
-                                    };
+				let object = canvas.getActiveObject();
+				canvas.remove(canvas.item(0));
+
+				fabric.Image.fromURL(e.target.result,function(img){
+					var aspectRatio = 500/500;
+					var factor = 500 / img.width;
+					img.set({
+						scaleX: factor,
+						scaleY: factor 
+					});
+					canvas.add(img);
+					canvas.item(0).set({
+						borderColor: 'gray',
+						cornerColor: 'black',
+						cornerSize: 70,
+						borderScaleFactor: 10,
+						hasBorders: true,
+						
+						rotatingPointOffset:200,
+						padding:60, 
+						transparentCorners: true
+					});
+					canvas.setActiveObject(canvas.item(0));
+					this.__canvases.push(canvas);
+					canvas.sendToBack(img);
+				});
+			};
 		}
 	</script>
 	<script>
