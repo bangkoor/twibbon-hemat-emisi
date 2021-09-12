@@ -1,8 +1,8 @@
 <?php
-	$hostname = "192.168.254.1";
-	$database = "dbpplh";
-	$username = "pplh";
-	$password = "DBMSp3p33lh4!P*";
+	$hostname = "DBADDRESS";
+	$database = "DBNAME";
+	$username = "DBUSERNAME";
+	$password = "DBPASSWORD";
 	$connect = mysqli_connect($hostname, $username, $password, $database);
 
 	// cek koneksi   
