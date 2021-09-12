@@ -214,10 +214,10 @@
       </div>
       <div class="modal-body">
         <p>
-		Pendugaan potensi emisi dihitung dengan asumsi jika peserta menggunakan kendaraan bermotor. Emisi CO<sub>2</sub> dihitung menggunakan metode Tier-1 sesuai dengan Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional (KLH 2021). Jumlah jarak tempuh berdasarkan bahan bakar diasumsikan berdasarkan hasil penelitian Zulfikri & Maemunah (2010), Saharuna (2017), dan Manorek <i>et al.</i> (2018).
+		Pendugaan potensi emisi dihitung dengan asumsi jika peserta menggunakan kendaraan bermotor. Emisi CO<sub>2</sub> dihitung menggunakan metode Tier-1 sesuai dengan Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional (KLH 2012). Jumlah jarak tempuh berdasarkan bahan bakar diasumsikan berdasarkan hasil penelitian Zulfikri & Maemunah (2010), Saharuna (2017), dan Manorek <i>et al.</i> (2018).
 		</p>
 		<p><strong>Daftar Pustaka</strong></p>
-		<p>[KLH] Kementerian Lingkungan Hidup. 2021. Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional. Buku II - Volume 1 Metodologi Perhitungan Tingkat Emisi Gas Rumah Kaca Kegiatan Pengadaan dan Penggunaan Energi. Jakarta (ID): KLH RI.</p>
+		<p>[KLH] Kementerian Lingkungan Hidup. 2012. Pedoman Penyelenggaraan Inventarisasi Gas Rumah Kaca Nasional. Buku II - Volume 1 Metodologi Perhitungan Tingkat Emisi Gas Rumah Kaca Kegiatan Pengadaan dan Penggunaan Energi. Jakarta (ID): KLH RI.</p>
 		<p>Manorek DW, Rante J, Patras A. 2018. Perancangan dan pengukuran jarak tempuh motor injeksi menggunakan mikrokontroler. Jurnal Realtech 14(2):110-115.</p>
 		<p>Saharuna. 2017. Perbandingan konsumsi bahan bakar sepeda motor sistem konvensional dan sistem EFI. Jurnal Teknik Mesin Teknologi 19(1):34-42.</p>
 		<p>Zulfikri dan Maemunah S. 2010. Kajian konsumsi BBM pengguna kendaraan pribadi roda empat di JABODETABEK. Warta Penelitian Perhubungan 22(5):513-526.</p>
