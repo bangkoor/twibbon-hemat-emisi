@@ -54,7 +54,7 @@
                   <div class="form-row mt-4">
                     <div class="col-lg-10">
 						<div class="range-wrap" style="text-align:center;">
-							<input class="range" id="jarak" name="jarak" type="range" style="" min="0" max="50" step="0.1" value="0" onchange="updateTextInput(this.value);">
+							<input class="range" id="jarak" name="jarak" type="range" style="" min="0" max="100" step="1" value="0" onchange="updateTextInput(this.value);">
 							
 						</div>
                     </div>
