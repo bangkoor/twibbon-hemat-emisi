@@ -14,7 +14,15 @@
 	<script src='./plugin/jquery-slider/js/rangeslider.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha512-P80p6tohVkKfeJBb6xFNw7PAlgdY4rZWSZbLu5UtuGGiC85I0P7uuSEpes/Yvq/djrmUZ3ZiyU1295dCacFlQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5DD6K50Y8B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5DD6K50Y8B');
+</script>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -173,7 +181,7 @@
             </form>
 			
 			<center><a href="#metode" data-toggle="modal" data-target="#metode">Metode perhitungan</a></center>
-			<center><small><span>made by <a href="#developer"  data-toggle="modal" data-target="#developer">Taufiq & Arif, Unit SITD PPLH IPB University</a></span></small></center>
+			<center><small><span>dibuat oleh <a href="#developer"  data-toggle="modal" data-target="#developer">Taufiq & Arif, Unit SITD PPLH IPB University</a></span></small></center>
           </div>
         </div>
       </div>
@@ -239,12 +247,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-		<h6>Made by</h6>
+      <div class="modal-body" align="center">
+		<h6>Dibuat oleh</h6>
 	  	<h5><a href="https://pplh.ipb.ac.id/team/taufiq-yuliawan/" target="blank">Taufiq Yuliawan</a></h5>
-		<h5><a href="https://akwijayanto.com/" target="blank">Arif Kurnia Wijayanto</a></h5>
+		<h5><a href="https://pplh.ipb.ac.id/team/arif-kurnia-wijayanto-m-sc-2/" target="blank">Arif Kurnia Wijayanto</a></h5>
 		<hr>
-		<h6>Made with</h6>
+		<h6>menggunakan</h6>
 			<p><a href="https://jquery.com/" target="blank">jQuery</a></p>
 			<p><a href="https://getbootstrap.com/" target="blank">Bootstrap</a></p>
 			<p><a href="https://rangeslider.js.org/" target="blank">rangeslider.js</a></p>
@@ -265,15 +273,7 @@
 </div>
 
 <!-- partial -->
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2BGEH1XLB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-W2BGEH1XLB');
-</script>
 <script  src="./script.js"></script>
 <!-- twibbon -->
   <script src="fabric.min.js"></script>
