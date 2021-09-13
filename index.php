@@ -8,13 +8,12 @@
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha512-Kx22U8IiIwSKYEPPTN6bjolK0XMhQ4ZDcOwR+GzXnoWbpyQDPKNXQfJLOt6o5MzhtXorMb0M+LptuR8h47/I5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
 	<link rel='stylesheet' href='./plugin/jquery-slider/css/rangeslider.css'>
+	
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src='./plugin/jquery-slider/js/rangeslider.js'></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha512-P80p6tohVkKfeJBb6xFNw7PAlgdY4rZWSZbLu5UtuGGiC85I0P7uuSEpes/Yvq/djrmUZ3ZiyU1295dCacFlQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	
 </head>
 <body>
@@ -23,6 +22,7 @@
 <!--PEN HEADER-->
 <header class="header">
   <h1 class="header__title">Twibbon Potensi Hemat Emisi</h1>
+  <h6 id="jumlah_dukungan"></h6>
 </header>
 <!--PEN CONTENT     -->
 <div class="content">
@@ -240,8 +240,22 @@
         </button>
       </div>
       <div class="modal-body">
-	  	<h4><a href="https://pplh.ipb.ac.id/team/taufiq-yuliawan/" target="blank">Taufiq Yuliawan</a></h4>
-		<h4><a href="https://akwijayanto.com/" target="blank">Arif Kurnia Wijayanto</a></h4>
+		<h6>Made by</h6>
+	  	<h5><a href="https://pplh.ipb.ac.id/team/taufiq-yuliawan/" target="blank">Taufiq Yuliawan</a></h5>
+		<h5><a href="https://akwijayanto.com/" target="blank">Arif Kurnia Wijayanto</a></h5>
+		<hr>
+		<h6>Made with</h6>
+			<p><a href="https://jquery.com/" target="blank">jQuery</a></p>
+			<p><a href="https://getbootstrap.com/" target="blank">Bootstrap</a></p>
+			<p><a href="https://rangeslider.js.org/" target="blank">rangeslider.js</a></p>
+			<p><a href="https://sweetalert2.github.io/" target="blank">sweetalert2</a></p>
+			<p><a href="http://fabricjs.com/" target="blank">Fabric.js</a></p>
+			<p><a href="https://github.com/eligrey/FileSaver.js/" target="blank">FileSaver.js by eligrey</a></p>
+			<p><a href="http://purl.eligrey.com/github/canvas-toBlob.js/blob/master/canvas-toBlob.js" target="blank">canvas-toBlob.js by eligrey</a></p>
+			<p><a href="https://analytics.google.com" target="blank">Google Analytics</a></p>
+			<p><a href="https://code.visualstudio.com/" target="blank">Visual Studio Code</a></p>
+			<p><a href="https://www.mysql.com/" target="blank">MySQL</a></p>
+		<p></p>
 	  </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -311,7 +325,8 @@ actualBtn.addEventListener('change', function(){
   navigator.clipboard.writeText(copyText.value);
 
   /* Alert the copied text */
-  alert("Berhasil disalin!");
+  //alert("Berhasil disalin!");
+  Swal.fire('Great!', 'Teks berhasil disalin', 'success');
 }
 </script>
 <script>
@@ -433,23 +448,33 @@ actualBtn.addEventListener('change', function(){
         namaIMG=namaIMG.replace(" PM", "");
 
 		$("#download").click(function(){
-			$("#c").get(0).toBlob(function(blob){
-				saveAs(blob, "PPLH-"+namaIMG+".png");
-				dataObject.append('gbr', blob, "PPLH-"+namaIMG+".png");
-					$.ajax({
-					url: "data/addData.php?function=tmbhems",
-					type: "post",
-					data: dataObject,
-					processData: false,
-					contentType: false,
-					success: function (data,status,xhr) {   // success callback function
-						console.log("sukses");
-					},
-					error: function (jqXhr, textStatus, errorMessage) { // error callback 
-						console.log(errorMessage);
-					}
-				});
-			});
+			if(!!dataObject.entries().next().value){
+				if( document.getElementById("actual-btn").files.length == 0 ){
+					Swal.fire('Oops...', 'Maaf, mohon masukkan foto terlebih dahulu', 'error');
+				} else {
+					$("#c").get(0).toBlob(function(blob){
+						saveAs(blob, "PPLH-"+namaIMG+".png");
+						dataObject.append('gbr', blob, "PPLH-"+namaIMG+".png");
+							$.ajax({
+							url: "data/crud_edit.php?function=addData",
+							type: "post",
+							data: dataObject,
+							processData: false,
+							contentType: false,
+							success: function (data,status,xhr) {   // success callback function
+								console.log("sukses");
+							},
+							error: function (jqXhr, textStatus, errorMessage) { // error callback 
+								console.log(errorMessage);
+							}
+						});
+					});
+				}
+				
+			} else {
+				Swal.fire('Oops...', 'Maaf,  mohon isi data jarak atau kendaraan terlebih dahulu', 'error');
+			}
+			
 		});
 </script>
 
@@ -574,6 +599,29 @@ actualBtn.addEventListener('change', function(){
 		$('input[name="kendaraan"]').on('click change', function() {
 			hitung();
 		});
+		$( document ).ready(function() {
+			$.ajax({
+					url: "data/crud_edit.php?function=getData",
+					type: "post",
+					data: {ignore:"0"},
+					success: function (data,status,xhr) {
+						let result = data[0];
+						
+						if (result.pendukung && result.total_jarak && result.total_emisi) {
+							let msg = "Sampai saat ini terdapat "+result.pendukung+" pendukung, dengan total jarak gowes "+result.total_jarak+" km, dan telah menghemat potensi emisi sebesar "+result.total_emisi+" kg";
+							$('#jumlah_dukungan').text(msg);
+						} else {
+							$('#jumlah_dukungan').text('');
+						}	
+					},
+					error: function (jqXhr, textStatus, errorMessage) { // error callback 
+						console.log(errorMessage);
+					}
+			
+			});
+		});
+		
+		
 	</script>
 </body>
 </html>

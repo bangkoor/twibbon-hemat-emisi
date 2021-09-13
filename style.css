@@ -51,7 +51,7 @@ body a {
 }
 
 .header__title {
-  margin-bottom: 30px;
+  margin-bottom: 0px !important;
   font-size: 2.1rem;
 }
 
