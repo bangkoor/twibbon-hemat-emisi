@@ -251,7 +251,15 @@
 </div>
 
 <!-- partial -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W2BGEH1XLB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-W2BGEH1XLB');
+</script>
 <script  src="./script.js"></script>
 <!-- twibbon -->
   <script src="fabric.min.js"></script>
